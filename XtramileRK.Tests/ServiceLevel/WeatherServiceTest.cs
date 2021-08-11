@@ -19,7 +19,7 @@ namespace XtramileRK.Tests.ServiceLevel
 
         public WeatherServiceTest()
         {
-            _configuration = new ConfigurationBuilder().AddUserSecrets<Startup>().Build();
+            _configuration = new ConfigurationBuilder().AddJsonFile("appsettings.test.json").Build();
             ServiceCollection serviceCollection = new ServiceCollection();
             serviceCollection.AddOpenWeatherServices(options =>
             {

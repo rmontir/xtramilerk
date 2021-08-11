@@ -23,7 +23,7 @@ namespace XtramileRK.Tests.ControllerLevel
 
         public HomeControllerTest()
         {
-            _configuration = new ConfigurationBuilder().AddUserSecrets<Startup>().Build();
+            _configuration = new ConfigurationBuilder().AddJsonFile("appsettings.test.json").Build();
             ServiceCollection serviceCollection = new ServiceCollection();
             serviceCollection.AddOpenWeatherServices(options =>
             {
