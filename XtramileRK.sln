@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31004.235
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XtramileRK", "XtramileRK\XtramileRK.csproj", "{DBBBFE3B-69CE-43E5-B8EB-0E6E282076A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XtramileRK.External.Postman", "XtramileRK.External.Postman\XtramileRK.External.Postman.csproj", "{418AE998-D97F-4114-8393-519044BD08D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XtramileRK.External.OpenWeather", "XtramileRK.External.OpenWeather\XtramileRK.External.OpenWeather.csproj", "{B78264E8-1F0A-4A74-939B-4F671BFA63AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XtramileRK.Tests", "XtramileRK.Tests\XtramileRK.Tests.csproj", "{1A4020DA-A4A9-4F8F-B8D6-3FC042E3FF03}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DBBBFE3B-69CE-43E5-B8EB-0E6E282076A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBBBFE3B-69CE-43E5-B8EB-0E6E282076A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBBBFE3B-69CE-43E5-B8EB-0E6E282076A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBBBFE3B-69CE-43E5-B8EB-0E6E282076A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{418AE998-D97F-4114-8393-519044BD08D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{418AE998-D97F-4114-8393-519044BD08D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{418AE998-D97F-4114-8393-519044BD08D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{418AE998-D97F-4114-8393-519044BD08D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B78264E8-1F0A-4A74-939B-4F671BFA63AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B78264E8-1F0A-4A74-939B-4F671BFA63AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B78264E8-1F0A-4A74-939B-4F671BFA63AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B78264E8-1F0A-4A74-939B-4F671BFA63AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A4020DA-A4A9-4F8F-B8D6-3FC042E3FF03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A4020DA-A4A9-4F8F-B8D6-3FC042E3FF03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A4020DA-A4A9-4F8F-B8D6-3FC042E3FF03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A4020DA-A4A9-4F8F-B8D6-3FC042E3FF03}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F9963B4A-3259-476F-8014-9E59468750C1}
+	EndGlobalSection
+EndGlobal

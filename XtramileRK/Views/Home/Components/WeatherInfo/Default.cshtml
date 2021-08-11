@@ -1,0 +1,98 @@
+﻿@model WeatherResponse
+
+<div id="weather-info-card" class="card">
+    <div class="card-body row text-left">
+        @if (!(Model is null) && !Model.IsError)
+        {
+            <div class="col-md-6 col-12">
+                <div class="form-group">
+                    <label>Location</label>
+                    <input type="text" class="form-control" value="@($"{Model.Data.Location}")" readonly />
+                </div>
+            </div>
+            <div class="col-md-6 col-12">
+                <div class="form-group">
+                    <label>Time</label>
+                    <input type="text" class="form-control" value="@($"{Model.Data.Time:HH:mm} UTC")" readonly />
+                </div>
+            </div>
+
+            <div class="col-md-6 col-12">
+                <div class="form-group">
+                    <label>Wind</label>
+                    <input type="text" class="form-control" value="@($"{Model.Data.Wind} miles/hour")" readonly />
+                </div>
+            </div>
+            <div class="col-md-6 col-12">
+                <div class="form-group">
+                    <label>Visibility</label>
+                    <input type="text" class="form-control" value="@($"{Model.Data.Visibility:N0} meter")" readonly />
+                </div>
+            </div>
+
+            <div class="col-md-6 col-12">
+                <div class="form-group">
+                    <label>Sky Conditions</label>
+                    <input type="text" class="form-control" value="@($"{Model.Data.SkyConditions}")" readonly />
+                </div>
+            </div>
+            <div class="col-md-6 col-12">
+                <div class="form-group">
+                    <label>Temperature (&deg;C)</label>
+                    <input type="text" class="form-control" value="@($"{Model.Data.TempC:N2}")" readonly />
+                </div>
+            </div>
+
+            <div class="col-md-6 col-12">
+                <div class="form-group">
+                    <label>Temperature (&deg;F)</label>
+                    <input type="text" class="form-control" value="@($"{Model.Data.TempF}")" readonly />
+                </div>
+            </div>
+            <div class="col-md-6 col-12">
+                <div class="form-group">
+                    <label>Dew Point (&deg;C)</label>
+                    <input type="text" class="form-control" value="@($"{Model.Data.DewPoint:N2}")" readonly />
+                </div>
+            </div>
+
+            <div class="col-md-6 col-12">
+                <div class="form-group">
+                    <label>Relative Humidity</label>
+                    <input type="text" class="form-control" value="@($"{Model.Data.RelativeHumidity}%")" readonly />
+                </div>
+            </div>
+            <div class="col-md-6 col-12">
+                <div class="form-group">
+                    <label>Pressure</label>
+                    <input type="text" class="form-control" value="@($"{Model.Data.Pressure:N0} hPa")" readonly />
+                </div>
+            </div>
+        }
+        else if (!(Model is null) && Model.IsError)
+        {
+            <div id="messageDisplay" class="col-12">
+                <div class="alert alert-danger mb-0">
+                    @Model.Message
+                </div>
+            </div>
+        }
+        else
+        {
+            <div id="messageDisplay" class="col-12">
+                <div class="alert alert-info mb-0">
+                    Please choose your city to check the weather info.
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div id="weather-loading-card" class="card d-none">
+    <div class="card-body row text-left">
+        <div id="messageDisplay" class="col-12">
+            <div class="alert alert-info mb-0">
+                <span class="fas fa-spinner animate"></span> Getting weather info data...
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+﻿@model SelectorViewModel
+
+@if (Model.Data.Count > 0)
+{
+    <select id="ddlCity" class="form-control" onchange="@(Html.Raw(Model.OnChange))">
+        @if (string.IsNullOrWhiteSpace(Model.SelectedValue))
+        {
+            <option value="" selected disabled>-- Select City --</option>
+        }
+        else
+        {
+            <option value="" disabled>-- Select City --</option>
+        }
+
+        @foreach (SelectListItem item in Model.Data.OrderBy(d => d.Text))
+        {
+            if (item.Value == Model.SelectedValue)
+            {
+                <option value="@(item.Value)" selected>@(item.Text)</option>
+            }
+            else
+            {
+                <option value="@(item.Value)">@(item.Text)</option>
+            }
+        }
+    </select>
+}
+else
+{
+    <select id="ddlCity" class="form-control" disabled>
+        <option value="" selected disabled>-- Select City --</option>
+    </select>
+}
+<div class="input-group-append">
+    <div class="input-group-text input-icon">
+        <span id="iconCity" class="fas fa-city"></span>
+        <span id="loadingCity" class="fas fa-spinner animate d-none"></span>
+    </div>
+</div>

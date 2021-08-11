@@ -1,0 +1,29 @@
+﻿@model SelectorViewModel
+
+<select id="ddlCountry" class="form-control" onchange="@(Html.Raw(Model.OnChange))">
+    @if (string.IsNullOrWhiteSpace(Model.SelectedValue))
+    {
+        <option value="" selected disabled>-- Select Country --</option>
+    }
+    else
+    {
+        <option value="" disabled>-- Select Country --</option>
+    }
+
+    @foreach (SelectListItem item in Model.Data.OrderBy(d => d.Text))
+    {
+        if (item.Value == Model.SelectedValue)
+        {
+            <option value="@(item.Value)" selected>@(item.Text)</option>
+        }
+        else
+        {
+            <option value="@(item.Value)">@(item.Text)</option>
+        }
+    }
+</select>
+<div class="input-group-append">
+    <div class="input-group-text input-icon">
+        <span class="fas fa-globe-europe"></span>
+    </div>
+</div>

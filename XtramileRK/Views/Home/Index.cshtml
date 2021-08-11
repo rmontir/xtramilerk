@@ -1,0 +1,102 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Xtramile Weather Info</h1>
+    <div class="my-4" style="min-width: 500px;">
+        <div class="card w-50 m-auto">
+            <div class="card-body">
+                <div class="input-group mb-3">
+                    <vc:country-selector selected-value=""
+                                         on-change="@("countryChanged(this)")"></vc:country-selector>
+                </div>
+                <div id="field-city" class="input-group mb-3">
+                    <vc:city-selector country=""
+                                      on-change="@("cityChanged(this.value)")"></vc:city-selector>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button id="btnCheck" type="button" class="btn btn-primary btn-sm btn-block font-weight-bold"
+                                onclick="checkWeather()" disabled>
+                            Check
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="weather-info" class="my-4" style="min-width: 500px;">
+        <vc:weather-info city=""
+                         country-code=""></vc:weather-info>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        let citySelectorController = '@Url.Action("CitySelectorComponent", "Home")';
+        let weatherInfoController = '@Url.Action("WeatherInfoComponent", "Home")';
+
+        function countryChanged(selected) {
+            showLoadingCity();
+
+            $.get(citySelectorController, { country: selected.options[selected.selectedIndex].text, onChange: 'cityChanged(this.value)' })
+                .done(function (data) {
+                    $('#field-city').html(data);
+                    disableElement('#btnCheck');
+                    hideLoadingCity();
+                });
+        }
+
+        function cityChanged(selected) {
+            if (selected === "") {
+                disableElement('#btnCheck');
+            } else {
+                enableElement('#btnCheck');
+            }
+        }
+
+        function checkWeather() {
+            let city = $('#ddlCity').val();
+            let countryCode = $('#ddlCountry').val();
+            disableElement('#btnCheck');
+            hideElement('#weather-info-card');
+            showElement('#weather-loading-card');
+
+            $.get(weatherInfoController, { city: city, countryCode: countryCode })
+                .done(function (data) {
+                    $('#weather-info').html(data);
+                    enableElement('#btnCheck');
+                });
+        }
+
+        function showLoadingCity() {
+            disableElement('#ddlCountry');
+            disableElement('#ddlCity');
+            hideElement('#iconCity');
+            showElement('#loadingCity');
+        }
+
+        function hideLoadingCity() {
+            enableElement('#ddlCountry');
+            showElement('#iconCity');
+            hideElement('#loadingCity');
+        }
+
+        function disableElement(id) {
+            $(id).prop("disabled", true);
+        }
+
+        function enableElement(id) {
+            $(id).prop("disabled", false);
+        }
+
+        function hideElement(id) {
+            $(id).addClass('d-none');
+        }
+
+        function showElement(id) {
+            $(id).removeClass('d-none');
+        }
+    </script>
+}

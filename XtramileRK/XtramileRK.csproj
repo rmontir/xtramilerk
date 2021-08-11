@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>898613b1-2ca9-4fe5-8204-69e61a5786ef</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\XtramileRK.External.OpenWeather\XtramileRK.External.OpenWeather.csproj" />
+    <ProjectReference Include="..\XtramileRK.External.Postman\XtramileRK.External.Postman.csproj" />
+  </ItemGroup>
+
+</Project>
