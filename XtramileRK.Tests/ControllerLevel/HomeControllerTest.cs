@@ -111,13 +111,19 @@ namespace XtramileRK.Tests.ControllerLevel
         public async Task Weather_Info_Component_Invoke_With_No_Data_When_Parameter_Is_Empty()
         {
             DefaultHttpContext httpContext = new DefaultHttpContext();
-            ViewContext viewContext = new ViewContext();
-            viewContext.HttpContext = httpContext;
-            ViewComponentContext viewComponentContext = new ViewComponentContext();
-            viewComponentContext.ViewContext = viewContext;
+            ViewContext viewContext = new ViewContext
+            {
+                HttpContext = httpContext
+            };
+            ViewComponentContext viewComponentContext = new ViewComponentContext
+            {
+                ViewContext = viewContext
+            };
 
-            WeatherInfoViewComponent viewComponent = new WeatherInfoViewComponent(_weatherService);
-            viewComponent.ViewComponentContext = viewComponentContext;
+            WeatherInfoViewComponent viewComponent = new WeatherInfoViewComponent(_weatherService)
+            {
+                ViewComponentContext = viewComponentContext
+            };
 
             ViewViewComponentResult viewComponentResult = await viewComponent.InvokeAsync("", "").ConfigureAwait(false) as ViewViewComponentResult;
             Assert.IsNull(viewComponentResult.ViewData.Model);
